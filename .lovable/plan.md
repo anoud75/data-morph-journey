@@ -24,11 +24,12 @@ A single-page, Arabic (RTL) interactive exhibition where one object keeps transf
 
 **03 — Four solutions**
 - Cards: الحلول التجارية وسوق الدواء / الأدلة الواقعية والتجارب السريرية / الوصول إلى الفئات المستهدفة / الشراكات والاستثمار الصحي, with the copy from the brief document.
+- Use supplied icons as the initial card visuals: `40.png` for commercial solutions, `39.png` for real-world evidence, `41.png` for partnerships; create the fourth matching target-audience icon in the same glass language.
 - Glass styling: translucent white-cyan surface, frosted blur, thin cyan edge, soft inner glow, corner light reflection, no dark shadow.
 - Forming staggered 100–140ms; icon materializes after its card (opacity 0→1, scale 0.85→1, translateY 8→0, no bounce).
 - Hover/touch: scale 1.025, clearer glass, brighter border, icon lifts 4–6px, edge highlight sweep, siblings dim slightly.
 - Click: shared-layout expansion to a centered surface — icon grows and moves up, details reveal underneath; back reverses the same morph.
-- Left side: calm pharma professional visual with independently floating translucent data panels, slow chart animation, population dots brightening in sequence.
+- Use supplied `38.png` for the calm pharma professional and its surrounding UI panels; animate panel layers, charts and population dots rather than the person.
 
 **04 — Capsule → platform**
 - Cards drift together, boundaries dissolve, contents collapse into cyan particle streams flowing into a single floating capsule.
