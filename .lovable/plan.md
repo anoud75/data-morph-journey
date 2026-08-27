@@ -44,7 +44,7 @@ A single-page, Arabic (RTL) interactive exhibition where one object keeps transf
 ## Design system
 
 - Background `#F0F7F7` with faint blue radial gradients; glass in white/`#C7DBE2`/`#16BDD3`/`#1F97CC`; accent `#006CC4`; type `#0C1F3D`. SSCP purple only in the conference lockup.
-- Arabic-first RTL layout, Arabic display type for headlines.
+- Arabic-first RTL layout using **Cairo** throughout (high-weight Cairo for headings; regular/medium Cairo for body and UI labels).
 - Easing `cubic-bezier(0.22, 1, 0.36, 1)`; morphs 900–1400ms, UI 350–600ms, micro 180–300ms.
 - Full `prefers-reduced-motion` fallback: static composed states, no beams or loops.
 
