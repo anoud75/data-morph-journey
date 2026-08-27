@@ -50,11 +50,12 @@ A single-page, Arabic (RTL) interactive exhibition where one object keeps transf
 
 ## Technical notes
 
-- Install `motion` (Motion for React) for layout/shared-element morphs, timelines and scroll progress.
-- All hero/ribbon/card/capsule geometry authored as one continuous SVG scene per stage so morphs interpolate real paths; particles and beams use SVG `offset-path`/motion values, not video or GIFs.
+- Install `motion` (Motion for React) for layout/shared-element morphs, timelines and scroll progress; load Cairo in the document head and register it as the semantic sans/display font.
+- Import uploaded transparent PNGs `34`, `35`, `36`, `37`, `38`, `39`, `40`, `41`, `43`, and `44` through Lovable Assets as first-party visual elements, not merely references.
+- Composite the raster elements with masked overlays, SVG trails and particle layers so transformations visibly originate from the supplied artwork; shared silhouette/position continuity prevents replacement-style fades.
 - Section orchestration by a small stage state machine (`hero → stream → solutions → platform`) driven by scroll progress and explicit continue/play actions, so morphs are never interrupted mid-flight.
 - Built as `src/routes/index.tsx` plus components under `src/components/story/`; tokens added to `src/styles.css`.
-- Illustrative visuals (pharma professional, wireframe hand, laptop) generated as project assets; the uploaded slides are used as design reference only. The dashboard screen is rendered as live DOM so it can power on progressively.
+- The final laptop/dashboard remains a live DOM composition so its frame, navigation, metrics, charts and map can power on progressively.
 
 ## Open items
 
