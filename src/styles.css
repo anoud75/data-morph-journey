@@ -32,8 +32,8 @@ button { font-family: inherit; }
 .story-shell { position: relative; isolation: isolate; width: 100vw; height: 100svh; overflow: hidden; background: radial-gradient(circle at 72% 38%, oklch(.99 .01 195) 0 18%, transparent 47%), radial-gradient(circle at 8% 88%, oklch(.88 .06 205 / .5), transparent 30%), var(--background); letter-spacing: 0; }
 .story-shell::before { content:""; position:absolute; inset:0; z-index:-1; opacity:0; }
 .brand-header { position: fixed; z-index: 50; top: 4vh; inset-inline: 4.8vw; height: 58px; display:flex; align-items:center; justify-content:space-between; direction:ltr; }
-.brand-header > img { width: clamp(82px, 8vw, 125px); height:58px; object-fit:contain; }
-.brand-mark { height:92px; width:auto; object-fit:contain; }
+.brand-header > img:first-child { width: clamp(82px, 8vw, 125px); height:58px; object-fit:contain; }
+.brand-mark { height:clamp(70px,7vw,110px); width:auto; object-fit:contain; }
 .story-panel { position:absolute; inset:0; }
 .kicker { color:var(--primary); font-size:clamp(.72rem,1vw,.9rem); font-weight:700; letter-spacing:0; }
 h1,h2,h3,p { margin:0; }
@@ -84,7 +84,7 @@ h1,h2 { color:var(--navy); letter-spacing:0; }
 @keyframes float-mark{50%{transform:translateY(-6px)}}@keyframes sheen{45%,100%{transform:translateX(130%)}}@keyframes blink{50%{opacity:.2;transform:scale(.5)}}@keyframes orb{50%{transform:scale(1.03)}}@keyframes halo{0%{opacity:.75;transform:scale(.7)}80%,100%{opacity:0;transform:scale(1.65)}}@keyframes beam{to{transform:translateX(35vw)}}@keyframes travel{to{offset-distance:100%}}@keyframes cue{50%{transform:translateY(5px)}}
 
 @media(max-width:800px){
- .brand-header{top:2vh;inset-inline:5vw;height:58px}.brand-header>img{width:92px;height:56px}.brand-mark{height:58px;width:auto}
+ .brand-header{top:2vh;inset-inline:5vw;height:58px}.brand-header>img:first-child{width:92px;height:56px}.brand-mark{height:58px;width:auto}
  .mark-morph{top:26%;right:-14vw;left:auto;width:78vw;translate:0 -50%}.hero-copy{left:5vw;right:5vw;top:62%;transform:translateY(-50%)}.hero-copy h1{font-size:clamp(2.1rem,10vw,3.6rem);line-height:1.22}.hero-sub{font-size:.83rem}.cyan-rule{margin:14px 0 10px;width:130px}.play-orb{width:74px;height:74px;margin-top:14px}
 
  .data-copy{top:14%;width:88vw}.data-copy h2{font-size:clamp(2.25rem,10vw,4rem)}.data-copy p{width:100%;font-size:.85rem}.ribbons{height:48%;width:150%;left:-28%;bottom:-2%}
