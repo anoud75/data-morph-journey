@@ -12,6 +12,8 @@ import marketIcon from "@/assets/yamamah-40.png.asset.json";
 import partnerIcon from "@/assets/yamamah-41.png.asset.json";
 import hand from "@/assets/yamamah-43.png.asset.json";
 import capsule from "@/assets/yamamah-44.png.asset.json";
+import brandMark from "@/assets/yamamah-mark.png.asset.json";
+
 
 type Stage = 0 | 1 | 2 | 3;
 type Solution = { title: string; summary: string; detail: string; icon: string | null };
