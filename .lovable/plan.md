@@ -6,8 +6,9 @@ A single-page, Arabic (RTL) interactive exhibition where one object keeps transf
 
 **01 — Hero (idle)**
 - Headline "ماذا تخبرنا البيانات عن الدواء؟" + subline "بيانات وطنية. رؤى دوائية. قرارات أذكى."
-- Yamamah glass mark on the right, built as layered SVG strips: each strip breathes independently 2–6px on a 5–8s cycle, with three parallax depths and a slow internal light sweep.
-- Glass play button: 2–3% breathing scale plus an expanding cyan halo every ~2.7s.
+- Use supplied `34.png` as the Yamamah glass mark on the right, segmented into independently animated strip regions: each breathes 2–6px on a 5–8s cycle, with three parallax depths and a slow internal light sweep.
+- Use supplied `35.png` as the glass play control: 2–3% breathing scale plus an expanding cyan halo every ~2.7s.
+- Use supplied `36.png` as the SSCP conference lockup.
 
 **Play press → morph into 02**
 - Button compresses 1 → 0.93 → 1; a light beam leaves the button and travels to the mark.
@@ -16,22 +17,23 @@ A single-page, Arabic (RTL) interactive exhibition where one object keeps transf
 
 **02 — National data story**
 - Headline "من أكبر منظومة بيانات صحية.. نرسم مستقبل قطاع الأدوية." with the morphing reveal: selected word groups resolve from 8–12px blur + opacity 0 at staggered moments over ~1000ms. Body paragraph stays sharp and static.
-- Ribbons drift horizontally forever at three parallax speeds; cyan particles travel along selected ribbon paths.
+- Use supplied `37.png` as the first ribbon material/reference; its layered ribbons drift horizontally at three parallax speeds while cyan particles travel along selected curves.
 
 **02 → 03 morph**
 - Ribbons split into four streams, each curving to a card slot, then shortening, flattening and straightening into the four card outlines.
 
 **03 — Four solutions**
 - Cards: الحلول التجارية وسوق الدواء / الأدلة الواقعية والتجارب السريرية / الوصول إلى الفئات المستهدفة / الشراكات والاستثمار الصحي, with the copy from the brief document.
+- Use supplied icons as the initial card visuals: `40.png` for commercial solutions, `39.png` for real-world evidence, `41.png` for partnerships; create the fourth matching target-audience icon in the same glass language.
 - Glass styling: translucent white-cyan surface, frosted blur, thin cyan edge, soft inner glow, corner light reflection, no dark shadow.
 - Forming staggered 100–140ms; icon materializes after its card (opacity 0→1, scale 0.85→1, translateY 8→0, no bounce).
 - Hover/touch: scale 1.025, clearer glass, brighter border, icon lifts 4–6px, edge highlight sweep, siblings dim slightly.
 - Click: shared-layout expansion to a centered surface — icon grows and moves up, details reveal underneath; back reverses the same morph.
-- Left side: calm pharma professional visual with independently floating translucent data panels, slow chart animation, population dots brightening in sequence.
+- Use supplied `38.png` for the calm pharma professional and its surrounding UI panels; animate panel layers, charts and population dots rather than the person.
 
 **04 — Capsule → platform**
-- Cards drift together, boundaries dissolve, contents collapse into cyan particle streams flowing into a single floating capsule.
-- Wireframe hand materializes from the left in three stages (points → lines → mesh), approaches and stops short of the capsule. Capsule rotates gently with internal data points.
+- Cards drift together, boundaries dissolve, contents collapse into cyan particle streams flowing into the supplied `44.png` capsule/data-stream visual.
+- Use supplied `43.png` for the wireframe hand; reveal it progressively in three stages (points → lines → mesh), then approach and stop short of the capsule. Capsule rotates gently with internal data points.
 - A beam leaves the capsule to the laptop; the screen powers on progressively: frame → nav → metrics → charts → map.
 - CTA "استعرض المنصة" as a glass pill: idle inner light, hover brighten + 1.02, tap 0.96 with a light ripple, then opens the demo.
 
@@ -42,17 +44,18 @@ A single-page, Arabic (RTL) interactive exhibition where one object keeps transf
 ## Design system
 
 - Background `#F0F7F7` with faint blue radial gradients; glass in white/`#C7DBE2`/`#16BDD3`/`#1F97CC`; accent `#006CC4`; type `#0C1F3D`. SSCP purple only in the conference lockup.
-- Arabic-first RTL layout, Arabic display type for headlines.
+- Arabic-first RTL layout using **Cairo** throughout (high-weight Cairo for headings; regular/medium Cairo for body and UI labels).
 - Easing `cubic-bezier(0.22, 1, 0.36, 1)`; morphs 900–1400ms, UI 350–600ms, micro 180–300ms.
 - Full `prefers-reduced-motion` fallback: static composed states, no beams or loops.
 
 ## Technical notes
 
-- Install `motion` (Motion for React) for layout/shared-element morphs, timelines and scroll progress.
-- All hero/ribbon/card/capsule geometry authored as one continuous SVG scene per stage so morphs interpolate real paths; particles and beams use SVG `offset-path`/motion values, not video or GIFs.
+- Install `motion` (Motion for React) for layout/shared-element morphs, timelines and scroll progress; load Cairo in the document head and register it as the semantic sans/display font.
+- Import uploaded transparent PNGs `34`, `35`, `36`, `37`, `38`, `39`, `40`, `41`, `43`, and `44` through Lovable Assets as first-party visual elements, not merely references.
+- Composite the raster elements with masked overlays, SVG trails and particle layers so transformations visibly originate from the supplied artwork; shared silhouette/position continuity prevents replacement-style fades.
 - Section orchestration by a small stage state machine (`hero → stream → solutions → platform`) driven by scroll progress and explicit continue/play actions, so morphs are never interrupted mid-flight.
 - Built as `src/routes/index.tsx` plus components under `src/components/story/`; tokens added to `src/styles.css`.
-- Illustrative visuals (pharma professional, wireframe hand, laptop) generated as project assets; the uploaded slides are used as design reference only. The dashboard screen is rendered as live DOM so it can power on progressively.
+- The final laptop/dashboard remains a live DOM composition so its frame, navigation, metrics, charts and map can power on progressively.
 
 ## Open items
 
