@@ -16,7 +16,6 @@ import brandBird from "@/assets/yamamah-bird.png.asset.json";
 import capsule from "@/assets/yamamah-44.png.asset.json";
 import laptopShot from "@/assets/yamamah-laptop.png.asset.json";
 
-import brandMark from "@/assets/yamamah-mark.png.asset.json";
 
 
 type Stage = 0 | 1 | 2 | 3;
