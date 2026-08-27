@@ -12,6 +12,8 @@ import marketIcon from "@/assets/yamamah-40.png.asset.json";
 import partnerIcon from "@/assets/yamamah-41.png.asset.json";
 import hand from "@/assets/yamamah-43.png.asset.json";
 import capsule from "@/assets/yamamah-44.png.asset.json";
+import brandMark from "@/assets/yamamah-mark.png.asset.json";
+
 
 type Stage = 0 | 1 | 2 | 3;
 type Solution = { title: string; summary: string; detail: string; icon: string | null };
@@ -54,10 +56,10 @@ function Hero({ onPlay, leaving }: { onPlay: () => void; leaving: boolean }) {
   return (
     <motion.section className="story-panel hero-panel" initial={false} animate={{ opacity: leaving ? 0 : 1, pointerEvents: leaving ? "none" : "auto" }} transition={{ duration: 0.8, ease }}>
       <div className="hero-copy">
-        <motion.p className="kicker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>بيانات وطنية · رؤية دوائية</motion.p>
         <h1>ماذا تخبرنا البيانات عن الدواء؟</h1>
         <div className="cyan-rule" />
-        <p className="hero-sub">اكتشف القصة الكاملة وراء الدواء.<br /><strong>بيانات وطنية. رؤى دوائية. قرارات أذكى.</strong></p>
+        <p className="hero-sub">اكتشف القصة الكاملة وراء الدواء<strong>بيانات وطنية. رؤى دوائية. قرارات أذكى.</strong></p>
+
         <button className="play-orb" onClick={onPlay} aria-label="ابدأ قصة البيانات">
           <span className="play-halo" />
           <img src={play.url} alt="" aria-hidden="true" />
@@ -141,7 +143,7 @@ export function YamamahStory() {
   useEffect(() => { const wheel = (event: WheelEvent) => { if (Math.abs(event.deltaY) < 24) return; event.preventDefault(); go(Math.max(0, Math.min(3, stage + (event.deltaY > 0 ? 1 : -1))) as Stage); }; window.addEventListener("wheel", wheel, { passive: false }); return () => window.removeEventListener("wheel", wheel); }, [go, stage]);
   useEffect(() => { const key = (e: KeyboardEvent) => { if (["ArrowDown","PageDown","ArrowLeft"].includes(e.key)) go(Math.min(3, stage + 1) as Stage); if (["ArrowUp","PageUp","ArrowRight"].includes(e.key)) go(Math.max(0, stage - 1) as Stage); }; window.addEventListener("keydown", key); return () => window.removeEventListener("keydown", key); }, [go, stage]);
   return <main className={`story-shell stage-${stage}`} dir="rtl">
-    <header className="brand-header"><img src={conference.url} alt="المؤتمر السنوي الدولي السادس للجمعية السعودية للصيدلة الإكلينيكية" /><span className="yamamah-wordmark"><i /> YAMAMAH LIFE SCIENCES</span></header>
+    <header className="brand-header"><img src={conference.url} alt="المؤتمر السنوي الدولي السادس للجمعية السعودية للصيدلة الإكلينيكية" /><img className="brand-mark" src={brandMark.url} alt="اليمامة لعلوم الحياة" /></header>
     <GlassMark stage={stage} />
     <Hero onPlay={() => go(1)} leaving={transitioning || stage !== 0} />
     <NationalData active={stage === 1} />
