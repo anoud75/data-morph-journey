@@ -13,6 +13,8 @@ import partnerIcon from "@/assets/yamamah-41.png.asset.json";
 import audienceIcon from "@/assets/yamamah-42.png.asset.json";
 import hand from "@/assets/yamamah-43.png.asset.json";
 import capsule from "@/assets/yamamah-44.png.asset.json";
+import laptopShot from "@/assets/yamamah-laptop.png.asset.json";
+
 import brandMark from "@/assets/yamamah-mark.png.asset.json";
 
 
