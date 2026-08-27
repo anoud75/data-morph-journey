@@ -32,8 +32,8 @@ A single-page, Arabic (RTL) interactive exhibition where one object keeps transf
 - Use supplied `38.png` for the calm pharma professional and its surrounding UI panels; animate panel layers, charts and population dots rather than the person.
 
 **04 — Capsule → platform**
-- Cards drift together, boundaries dissolve, contents collapse into cyan particle streams flowing into a single floating capsule.
-- Wireframe hand materializes from the left in three stages (points → lines → mesh), approaches and stops short of the capsule. Capsule rotates gently with internal data points.
+- Cards drift together, boundaries dissolve, contents collapse into cyan particle streams flowing into the supplied `44.png` capsule/data-stream visual.
+- Use supplied `43.png` for the wireframe hand; reveal it progressively in three stages (points → lines → mesh), then approach and stop short of the capsule. Capsule rotates gently with internal data points.
 - A beam leaves the capsule to the laptop; the screen powers on progressively: frame → nav → metrics → charts → map.
 - CTA "استعرض المنصة" as a glass pill: idle inner light, hover brighten + 1.02, tap 0.96 with a light ripple, then opens the demo.
 
