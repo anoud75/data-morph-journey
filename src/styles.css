@@ -38,12 +38,12 @@ button { font-family: inherit; }
 .kicker { color:var(--primary); font-size:clamp(.72rem,1vw,.9rem); font-weight:700; letter-spacing:0; }
 h1,h2,h3,p { margin:0; }
 h1,h2 { color:var(--navy); letter-spacing:0; }
-.hero-copy { position:absolute; z-index:4; left:6vw; right:38vw; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; text-align:center; }
+.hero-copy { position:absolute; z-index:4; left:4vw; right:34vw; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; align-items:center; text-align:center; }
 .hero-copy h1 { max-width:15ch; font-size:clamp(2.4rem,4.6vw,5.2rem); line-height:1.2; font-weight:700; }
 .hero-sub { color:var(--muted-foreground); font-size:clamp(.95rem,1.2vw,1.2rem); line-height:2.1; }
 .hero-sub strong { display:block; color:var(--foreground); font-weight:600; }
 .cyan-rule { width:190px; height:1px; margin:26px 0 20px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); }
-.mark-morph { position:absolute; z-index:3; top:50%; left:auto; right:-4vw; width:min(38vw,660px); transform-origin:center; translate:0 -50%; }
+.mark-morph { position:absolute; z-index:3; top:50%; left:auto; right:1vw; width:min(30vw,520px); transform-origin:center; translate:0 -50%; }
 .mark-morph img { display:block; width:100%; height:auto; filter:drop-shadow(0 30px 30px oklch(.55 .12 220 / .18)); animation:float-mark 7s ease-in-out infinite; }
 .mark-sheen { position:absolute; inset:7% 4%; overflow:hidden; mix-blend-mode:screen; background:linear-gradient(105deg,transparent 34%,oklch(1 0 0 /.7) 48%,transparent 62%); transform:translateX(-120%); animation:sheen 6s ease-in-out infinite; }
 .mark-particles i { position:absolute; top:calc((var(--i) + 1) * 7%); left:calc(20% + (var(--i) * 5%)); width:4px;height:4px;border-radius:50%;background:var(--cyan);animation:blink calc(2s + var(--i)*.11s) infinite; }
