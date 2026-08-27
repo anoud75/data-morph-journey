@@ -91,6 +91,7 @@ function SolutionIcon({ solution }: { solution: Solution }) {
 
 function Solutions({ active }: { active: boolean }) {
   const [selected, setSelected] = useState<number | null>(null);
+  const selectedSolution = selected === null ? undefined : solutions[selected];
   return (
     <motion.section className="story-panel solutions-panel" animate={{ opacity: active ? 1 : 0, pointerEvents: active ? "auto" : "none" }}>
       <motion.div className="professional" animate={{ x: active ? 0 : -180, opacity: active ? 1 : 0 }} transition={{ duration: 1.1, ease }}><img src={professional.url} alt="متخصص سعودي محاط بلوحات بيانات صحية" /></motion.div>
@@ -104,11 +105,11 @@ function Solutions({ active }: { active: boolean }) {
         ))}
       </div>
       <AnimatePresence>
-        {selected !== null && <motion.div className="detail-scrim" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelected(null)}>
+        {selected !== null && selectedSolution && <motion.div className="detail-scrim" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setSelected(null)}>
           <motion.article layoutId={`solution-${selected}`} className="solution-detail" onClick={(e) => e.stopPropagation()}>
             <Button variant="ghost" size="icon" onClick={() => setSelected(null)} aria-label="إغلاق"><X /></Button>
-            <div className="solution-icon"><SolutionIcon solution={solutions[selected]} /></div>
-            <h3>{solutions[selected].title}</h3><p>{solutions[selected].detail}</p>
+            <div className="solution-icon"><SolutionIcon solution={selectedSolution} /></div>
+            <h3>{selectedSolution.title}</h3><p>{selectedSolution.detail}</p>
           </motion.article>
         </motion.div>}
       </AnimatePresence>
