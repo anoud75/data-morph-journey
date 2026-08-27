@@ -131,14 +131,17 @@ function Dashboard() {
 function Platform({ active }: { active: boolean }) {
   const [demo, setDemo] = useState(false);
   return <motion.section className="story-panel platform-panel" animate={{ opacity: active ? 1 : 0, pointerEvents: active ? "auto" : "none" }}>
-    <div className="platform-copy"><p className="kicker">من الدواء إلى الرؤية</p><h2>كل إشارة تتحول إلى<br />قرار قابل للتنفيذ</h2><p>تترجم منصة اليمامة حركة الدواء إلى معرفة وطنية دقيقة، في اللحظة التي تحتاجها.</p><Button variant="glass" size="lg" onClick={() => setDemo(true)}>استعرض المنصة <ArrowLeft /></Button></div>
-    <motion.img className="data-hand" src={hand.url} alt="يد رقمية تتفاعل مع بيانات الدواء" animate={{ opacity: active ? 0.82 : 0, x: active ? 0 : -140 }} transition={{ duration: 1.3, ease }} />
-    <motion.img className="data-capsule" src={capsule.url} alt="كبسولة دواء تتحول إلى بيانات" animate={{ opacity: active ? 1 : 0, rotate: active ? [0, 2, -2, 0] : 0, y: active ? [0, -8, 0] : 80 }} transition={{ opacity: { duration: 0.7 }, rotate: { repeat: Infinity, duration: 7 }, y: { repeat: Infinity, duration: 5 } }} />
+    <motion.img className="data-hand" src={hand.url} alt="يد رقمية تتفاعل مع بيانات الدواء" animate={{ opacity: active ? 0.95 : 0, x: active ? 0 : -140 }} transition={{ duration: 1.3, ease }} />
+    <motion.img className="data-capsule" src={capsule.url} alt="كبسولة دواء تتحول إلى بيانات" animate={{ opacity: active ? 1 : 0, y: active ? [0, -10, 0] : 80 }} transition={{ opacity: { duration: 0.7 }, y: { repeat: Infinity, duration: 6, ease: "easeInOut" } }} />
     <Beam active={active} className="platform-beam" />
-    <motion.div className="dashboard-wrap" animate={{ opacity: active ? 1 : 0, x: active ? 0 : 120 }} transition={{ delay: 0.55, duration: 1.2, ease }}><Dashboard /></motion.div>
+    <motion.img className="laptop-shot" src={laptopShot.url} alt="منصة اليمامة CareFlow" animate={{ opacity: active ? 1 : 0, x: active ? 0 : 120 }} transition={{ delay: 0.5, duration: 1.2, ease }} />
+    <motion.div className="platform-cta" animate={{ opacity: active ? 1 : 0, y: active ? 0 : 40 }} transition={{ delay: 0.8, duration: 1, ease }}>
+      <Button variant="glass" size="lg" onClick={() => setDemo(true)}>استعرض المنصة <ArrowLeft /></Button>
+    </motion.div>
     <AnimatePresence>{demo && <motion.div className="demo-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><Button variant="ghost" size="icon" onClick={() => setDemo(false)} aria-label="إغلاق العرض"><X/></Button><Dashboard /></motion.div>}</AnimatePresence>
   </motion.section>;
 }
+
 
 export function YamamahStory() {
   const [stage, setStage] = useState<Stage>(0);
