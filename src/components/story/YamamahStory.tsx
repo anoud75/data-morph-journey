@@ -141,7 +141,7 @@ export function YamamahStory() {
   useEffect(() => { const wheel = (event: WheelEvent) => { if (Math.abs(event.deltaY) < 24) return; event.preventDefault(); go(Math.max(0, Math.min(3, stage + (event.deltaY > 0 ? 1 : -1))) as Stage); }; window.addEventListener("wheel", wheel, { passive: false }); return () => window.removeEventListener("wheel", wheel); }, [go, stage]);
   useEffect(() => { const key = (e: KeyboardEvent) => { if (["ArrowDown","PageDown","ArrowLeft"].includes(e.key)) go(Math.min(3, stage + 1) as Stage); if (["ArrowUp","PageUp","ArrowRight"].includes(e.key)) go(Math.max(0, stage - 1) as Stage); }; window.addEventListener("keydown", key); return () => window.removeEventListener("keydown", key); }, [go, stage]);
   return <main className={`story-shell stage-${stage}`} dir="rtl">
-    <header className="brand-header"><img src={conference.url} alt="المؤتمر السنوي الدولي السادس للجمعية السعودية للصيدلة الإكلينيكية" /><span className="yamamah-wordmark"><i /> YAMAMAH LIFE SCIENCES</span></header>
+    <header className="brand-header"><img src={conference.url} alt="المؤتمر السنوي الدولي السادس للجمعية السعودية للصيدلة الإكلينيكية" /><img className="brand-mark" src={brandMark.url} alt="اليمامة لعلوم الحياة" /></header>
     <GlassMark stage={stage} />
     <Hero onPlay={() => go(1)} leaving={transitioning || stage !== 0} />
     <NationalData active={stage === 1} />
