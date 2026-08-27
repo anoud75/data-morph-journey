@@ -17,7 +17,7 @@ A single-page, Arabic (RTL) interactive exhibition where one object keeps transf
 
 **02 — National data story**
 - Headline "من أكبر منظومة بيانات صحية.. نرسم مستقبل قطاع الأدوية." with the morphing reveal: selected word groups resolve from 8–12px blur + opacity 0 at staggered moments over ~1000ms. Body paragraph stays sharp and static.
-- Ribbons drift horizontally forever at three parallax speeds; cyan particles travel along selected ribbon paths.
+- Use supplied `37.png` as the first ribbon material/reference; its layered ribbons drift horizontally at three parallax speeds while cyan particles travel along selected curves.
 
 **02 → 03 morph**
 - Ribbons split into four streams, each curving to a card slot, then shortening, flattening and straightening into the four card outlines.
