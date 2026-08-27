@@ -54,10 +54,10 @@ function Hero({ onPlay, leaving }: { onPlay: () => void; leaving: boolean }) {
   return (
     <motion.section className="story-panel hero-panel" initial={false} animate={{ opacity: leaving ? 0 : 1, pointerEvents: leaving ? "none" : "auto" }} transition={{ duration: 0.8, ease }}>
       <div className="hero-copy">
-        <motion.p className="kicker" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>بيانات وطنية · رؤية دوائية</motion.p>
         <h1>ماذا تخبرنا البيانات عن الدواء؟</h1>
         <div className="cyan-rule" />
-        <p className="hero-sub">اكتشف القصة الكاملة وراء الدواء.<br /><strong>بيانات وطنية. رؤى دوائية. قرارات أذكى.</strong></p>
+        <p className="hero-sub">اكتشف القصة الكاملة وراء الدواء<strong>بيانات وطنية. رؤى دوائية. قرارات أذكى.</strong></p>
+
         <button className="play-orb" onClick={onPlay} aria-label="ابدأ قصة البيانات">
           <span className="play-halo" />
           <img src={play.url} alt="" aria-hidden="true" />
