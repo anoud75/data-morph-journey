@@ -10,6 +10,7 @@ import professional from "@/assets/yamamah-38.png.asset.json";
 import evidenceIcon from "@/assets/yamamah-39.png.asset.json";
 import marketIcon from "@/assets/yamamah-40.png.asset.json";
 import partnerIcon from "@/assets/yamamah-41.png.asset.json";
+import audienceIcon from "@/assets/yamamah-42.png.asset.json";
 import hand from "@/assets/yamamah-43.png.asset.json";
 import capsule from "@/assets/yamamah-44.png.asset.json";
 import brandMark from "@/assets/yamamah-mark.png.asset.json";
@@ -21,7 +22,7 @@ type Solution = { title: string; summary: string; detail: string; icon: string |
 const solutions: Solution[] = [
   { title: "الحلول التجارية وسوق الدواء", summary: "قرارات استراتيجية مبنية على حركة السوق الحقيقية", detail: "تحليلات دقيقة لحجم السوق والحصص التنافسية، مع تتبع كامل لسلاسل إمداد الدواء من المصنع حتى المريض، وفهم عميق لسلوك الوصفات الدوائية.", icon: marketIcon.url },
   { title: "الأدلة الواقعية والتجارب السريرية", summary: "تسريع الأبحاث العلمية بالأدلة الواقعية", detail: "بنية تحتية رقمية تتيح توليد البيانات الواقعية لحظيًا لدعم الأبحاث، وتسهيل إجراء التجارب السريرية وتحديد الفئات المستهدفة بدقة.", icon: evidenceIcon.url },
-  { title: "الوصول إلى الفئات المستهدفة", summary: "تواصل أدق مع المستفيدين والممارسين", detail: "نُمكّن التواصل المستهدف عبر القنوات الرقمية لدعم التوعية الصحية والبرامج الموجهة والمشاركة في الدراسات والبرامج الصحية.", icon: null },
+  { title: "الوصول إلى الفئات المستهدفة", summary: "تواصل أدق مع المستفيدين والممارسين", detail: "نُمكّن التواصل المستهدف عبر القنوات الرقمية لدعم التوعية الصحية والبرامج الموجهة والمشاركة في الدراسات والبرامج الصحية.", icon: audienceIcon.url },
   { title: "الشراكات والاستثمار الصحي", summary: "منظومة متكاملة تسرّع الابتكار", detail: "نربط بين القطاعين العام والخاص والجهات التشريعية لتمكين العلاجات الرقمية الحديثة وتطوير حلول رعاية صحية مبتكرة.", icon: partnerIcon.url },
 ];
 
