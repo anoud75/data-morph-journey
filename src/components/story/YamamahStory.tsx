@@ -71,12 +71,12 @@ function Hero({ onPlay, leaving }: { onPlay: () => void; leaving: boolean }) {
 }
 
 function NationalData({ active }: { active: boolean }) {
-  const groups = ["من أكبر", "منظومة بيانات صحية..", "نرسم مستقبل قطاع الأدوية."];
+  const groups = ["من أكبر منظومة بيانات صحية..", "نرسم مستقبل قطاع الأدوية."];
   return (
     <motion.section className="story-panel data-panel" animate={{ opacity: active ? 1 : 0, pointerEvents: active ? "auto" : "none" }} transition={{ duration: 0.65 }}>
       <div className="data-copy">
         <h2>{groups.map((g, i) => <motion.span key={g} initial={false} animate={{ opacity: active ? 1 : 0, filter: active ? "blur(0px)" : "blur(10px)", y: active ? 0 : 8 }} transition={{ delay: active ? i * 0.18 : 0, duration: 0.9, ease }}>{g}</motion.span>)}</h2>
-        <motion.p animate={{ opacity: active ? 1 : 0 }} transition={{ delay: 0.65 }}>نُمكّن شركات الأدوية والقطاع الصحي من فهم حركة السوق وتتبع الأدوية، وتفعيل التجارب السريرية استنادًا إلى أعلى معايير البيانات الوطنية.</motion.p>
+        <motion.p animate={{ opacity: active ? 1 : 0 }} transition={{ delay: 0.65 }} dangerouslySetInnerHTML={{ __html: "نُمكّن شركات الأدوية والقطاع الصحي من فهم حركة السوق وتتبع الأدوية،<br />وتفعيل التجارب السريرية، استنادًا إلى أعلى معايير البيانات الوطنية</motion.p>
       </div>
       <motion.div className="ribbons" animate={{ y: active ? 0 : 280, scaleX: active ? 1.08 : 0.48, scaleY: active ? 1 : 0.4, opacity: active ? 1 : 0 }} transition={{ duration: 1.25, ease }}>
         <img src={ribbons.url} alt="مسارات بيانات زجاجية متدفقة" />
