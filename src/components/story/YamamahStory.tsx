@@ -12,8 +12,10 @@ import marketIcon from "@/assets/yamamah-40.png.asset.json";
 import partnerIcon from "@/assets/yamamah-41.png.asset.json";
 import audienceIcon from "@/assets/yamamah-42.png.asset.json";
 import hand from "@/assets/yamamah-43.png.asset.json";
+import brandBird from "@/assets/yamamah-bird.png.asset.json";
 import capsule from "@/assets/yamamah-44.png.asset.json";
-import brandMark from "@/assets/yamamah-mark.png.asset.json";
+import laptopShot from "@/assets/yamamah-laptop.png.asset.json";
+
 
 
 type Stage = 0 | 1 | 2 | 3;
@@ -131,14 +133,17 @@ function Dashboard() {
 function Platform({ active }: { active: boolean }) {
   const [demo, setDemo] = useState(false);
   return <motion.section className="story-panel platform-panel" animate={{ opacity: active ? 1 : 0, pointerEvents: active ? "auto" : "none" }}>
-    <div className="platform-copy"><p className="kicker">من الدواء إلى الرؤية</p><h2>كل إشارة تتحول إلى<br />قرار قابل للتنفيذ</h2><p>تترجم منصة اليمامة حركة الدواء إلى معرفة وطنية دقيقة، في اللحظة التي تحتاجها.</p><Button variant="glass" size="lg" onClick={() => setDemo(true)}>استعرض المنصة <ArrowLeft /></Button></div>
-    <motion.img className="data-hand" src={hand.url} alt="يد رقمية تتفاعل مع بيانات الدواء" animate={{ opacity: active ? 0.82 : 0, x: active ? 0 : -140 }} transition={{ duration: 1.3, ease }} />
-    <motion.img className="data-capsule" src={capsule.url} alt="كبسولة دواء تتحول إلى بيانات" animate={{ opacity: active ? 1 : 0, rotate: active ? [0, 2, -2, 0] : 0, y: active ? [0, -8, 0] : 80 }} transition={{ opacity: { duration: 0.7 }, rotate: { repeat: Infinity, duration: 7 }, y: { repeat: Infinity, duration: 5 } }} />
+    <motion.img className="data-hand" src={hand.url} alt="يد رقمية تتفاعل مع بيانات الدواء" animate={{ opacity: active ? 0.95 : 0, x: active ? 0 : -140 }} transition={{ duration: 1.3, ease }} />
+    <motion.img className="data-capsule" src={capsule.url} alt="كبسولة دواء تتحول إلى بيانات" animate={{ opacity: active ? 1 : 0, y: active ? [0, -10, 0] : 80 }} transition={{ opacity: { duration: 0.7 }, y: { repeat: Infinity, duration: 6, ease: "easeInOut" } }} />
     <Beam active={active} className="platform-beam" />
-    <motion.div className="dashboard-wrap" animate={{ opacity: active ? 1 : 0, x: active ? 0 : 120 }} transition={{ delay: 0.55, duration: 1.2, ease }}><Dashboard /></motion.div>
+    <motion.img className="laptop-shot" src={laptopShot.url} alt="منصة اليمامة CareFlow" animate={{ opacity: active ? 1 : 0, x: active ? 0 : 120 }} transition={{ delay: 0.5, duration: 1.2, ease }} />
+    <motion.div className="platform-cta" animate={{ opacity: active ? 1 : 0, y: active ? 0 : 40 }} transition={{ delay: 0.8, duration: 1, ease }}>
+      <Button variant="glass" size="lg" onClick={() => setDemo(true)}>استعرض المنصة <ArrowLeft /></Button>
+    </motion.div>
     <AnimatePresence>{demo && <motion.div className="demo-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><Button variant="ghost" size="icon" onClick={() => setDemo(false)} aria-label="إغلاق العرض"><X/></Button><Dashboard /></motion.div>}</AnimatePresence>
   </motion.section>;
 }
+
 
 export function YamamahStory() {
   const [stage, setStage] = useState<Stage>(0);
@@ -148,7 +153,7 @@ export function YamamahStory() {
   useEffect(() => { const wheel = (event: WheelEvent) => { if (Math.abs(event.deltaY) < 24) return; event.preventDefault(); go(Math.max(0, Math.min(3, stage + (event.deltaY > 0 ? 1 : -1))) as Stage); }; window.addEventListener("wheel", wheel, { passive: false }); return () => window.removeEventListener("wheel", wheel); }, [go, stage]);
   useEffect(() => { const key = (e: KeyboardEvent) => { if (["ArrowDown","PageDown","ArrowLeft"].includes(e.key)) go(Math.min(3, stage + 1) as Stage); if (["ArrowUp","PageUp","ArrowRight"].includes(e.key)) go(Math.max(0, stage - 1) as Stage); }; window.addEventListener("keydown", key); return () => window.removeEventListener("keydown", key); }, [go, stage]);
   return <main className={`story-shell stage-${stage}`} dir="rtl">
-    <header className="brand-header"><img src={conference.url} alt="المؤتمر السنوي الدولي السادس للجمعية السعودية للصيدلة الإكلينيكية" /><img className="brand-mark" src={brandMark.url} alt="اليمامة لعلوم الحياة" /></header>
+    <header className="brand-header"><img src={conference.url} alt="المؤتمر السنوي الدولي السادس للجمعية السعودية للصيدلة الإكلينيكية" /><img className="brand-mark" src={brandBird.url} alt="اليمامة لعلوم الحياة" /></header>
     <GlassMark stage={stage} />
     <Hero onPlay={() => go(1)} leaving={transitioning || stage !== 0} />
     <NationalData active={stage === 1} />
