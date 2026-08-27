@@ -133,16 +133,24 @@ function Dashboard() {
 function Platform({ active }: { active: boolean }) {
   const [demo, setDemo] = useState(false);
   return <motion.section className="story-panel platform-panel" animate={{ opacity: active ? 1 : 0, pointerEvents: active ? "auto" : "none" }}>
-    <motion.img className="data-hand" src={hand.url} alt="يد رقمية تتفاعل مع بيانات الدواء" animate={{ opacity: active ? 0.95 : 0, x: active ? 0 : -140 }} transition={{ duration: 1.3, ease }} />
-    <motion.img className="data-capsule" src={capsule.url} alt="كبسولة دواء تتحول إلى بيانات" animate={{ opacity: active ? 1 : 0, y: active ? [0, -10, 0] : 80 }} transition={{ opacity: { duration: 0.7 }, y: { repeat: Infinity, duration: 6, ease: "easeInOut" } }} />
-    <Beam active={active} className="platform-beam" />
-    <motion.img className="laptop-shot" src={laptopShot.url} alt="منصة اليمامة CareFlow" animate={{ opacity: active ? 1 : 0, x: active ? 0 : 120 }} transition={{ delay: 0.5, duration: 1.2, ease }} />
-    <motion.div className="platform-cta" animate={{ opacity: active ? 1 : 0, y: active ? 0 : 40 }} transition={{ delay: 0.8, duration: 1, ease }}>
-      <Button variant="glass" size="lg" onClick={() => setDemo(true)}>استعرض المنصة <ArrowLeft /></Button>
+    <motion.img className="data-hand" src={hand.url} alt="يد رقمية تتفاعل مع بيانات الدواء" initial={false} animate={{ opacity: active ? 0.8 : 0 }} transition={{ delay: active ? 0.15 : 0, duration: 0.5, ease }} />
+    <motion.img className="data-capsule" src={capsule.url} alt="كبسولة دواء تتحول إلى بيانات" initial={false} animate={{ opacity: active ? 1 : 0 }} transition={{ delay: active ? 0.35 : 0, duration: 0.45, ease }} />
+    <motion.div className="data-stream" aria-hidden="true" initial={false} animate={{ opacity: active ? 1 : 0 }} transition={{ delay: active ? 0.65 : 0, duration: 0.55, ease }}>
+      <svg viewBox="0 0 200 100" preserveAspectRatio="none">
+        <path d="M0 55 C 60 55, 120 34, 200 20" />
+        <path className="b" d="M0 58 C 70 62, 130 46, 200 34" />
+        <path className="c" d="M0 52 C 55 44, 130 26, 200 10" />
+      </svg>
+      {[0, 0.8, 1.6, 2.4].map((d) => <i key={d} style={{ animationDelay: `${d}s` }} />)}
+    </motion.div>
+    <motion.img className="laptop-shot" src={laptopShot.url} alt="منصة اليمامة CareFlow" initial={false} animate={{ opacity: active ? 1 : 0, y: active ? 0 : 20 }} transition={{ delay: active ? 0.85 : 0, duration: 0.6, ease }} />
+    <motion.div className="platform-cta" initial={false} animate={{ opacity: active ? 1 : 0, y: active ? 0 : 20 }} transition={{ delay: active ? 1.2 : 0, duration: 0.5, ease }}>
+      <button type="button" className="glass-cta" onClick={() => setDemo(true)}>استعرض المنصة</button>
     </motion.div>
     <AnimatePresence>{demo && <motion.div className="demo-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><Button variant="ghost" size="icon" onClick={() => setDemo(false)} aria-label="إغلاق العرض"><X/></Button><Dashboard /></motion.div>}</AnimatePresence>
   </motion.section>;
 }
+
 
 
 export function YamamahStory() {
