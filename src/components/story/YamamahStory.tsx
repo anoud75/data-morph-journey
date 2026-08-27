@@ -44,7 +44,7 @@ function StageNav({ stage, go }: { stage: Stage; go: (s: Stage) => void }) {
 function GlassMark({ stage }: { stage: Stage }) {
   const reduced = useReducedMotion();
   return (
-    <motion.div className="mark-morph" animate={{ opacity: stage < 2 ? 1 : 0, x: stage === 0 ? 0 : stage === 1 ? "-30vw" : "-45vw", y: stage === 0 ? 0 : "44vh", scale: stage === 0 ? 1 : stage === 1 ? 2.1 : 2.5, rotate: stage === 0 ? 0 : -6 }} transition={{ duration: reduced ? 0 : 1.25, ease }}>
+    <motion.div className="mark-morph" animate={{ opacity: stage === 0 ? 1 : 0, pointerEvents: stage === 0 ? "auto" : "none", x: stage === 0 ? 0 : "-8vw", y: stage === 0 ? 0 : "-4vh", scale: stage === 0 ? 1 : 0.7, rotate: stage === 0 ? 0 : -6 }} transition={{ duration: reduced ? 0 : 1.1, ease }}>
       <img src={mark.url} alt="رمز اليمامة الزجاجي" />
       <div className="mark-sheen" />
       {!reduced && <div className="mark-particles">{Array.from({ length: 12 }).map((_, i) => <i key={i} style={{ "--i": i } as React.CSSProperties} />)}</div>}
