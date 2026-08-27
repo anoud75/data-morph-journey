@@ -6,8 +6,9 @@ A single-page, Arabic (RTL) interactive exhibition where one object keeps transf
 
 **01 — Hero (idle)**
 - Headline "ماذا تخبرنا البيانات عن الدواء؟" + subline "بيانات وطنية. رؤى دوائية. قرارات أذكى."
-- Yamamah glass mark on the right, built as layered SVG strips: each strip breathes independently 2–6px on a 5–8s cycle, with three parallax depths and a slow internal light sweep.
-- Glass play button: 2–3% breathing scale plus an expanding cyan halo every ~2.7s.
+- Use supplied `34.png` as the Yamamah glass mark on the right, segmented into independently animated strip regions: each breathes 2–6px on a 5–8s cycle, with three parallax depths and a slow internal light sweep.
+- Use supplied `35.png` as the glass play control: 2–3% breathing scale plus an expanding cyan halo every ~2.7s.
+- Use supplied `36.png` as the SSCP conference lockup.
 
 **Play press → morph into 02**
 - Button compresses 1 → 0.93 → 1; a light beam leaves the button and travels to the mark.
