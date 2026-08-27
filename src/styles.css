@@ -33,7 +33,7 @@ button { font-family: inherit; }
 .story-shell::before { content:""; position:absolute; inset:0; z-index:-1; opacity:0; }
 .brand-header { position: fixed; z-index: 50; top: 4vh; inset-inline: 4.8vw; height: 58px; display:flex; align-items:center; justify-content:space-between; direction:ltr; }
 .brand-header > img:first-child { width: clamp(82px, 8vw, 125px); height:58px; object-fit:contain; }
-.brand-mark { height:clamp(70px,7vw,110px); width:auto; object-fit:contain; }
+.brand-mark { height:clamp(96px,9vw,150px); width:auto; object-fit:contain; }
 .story-panel { position:absolute; inset:0; }
 .kicker { color:var(--primary); font-size:clamp(.72rem,1vw,.9rem); font-weight:700; letter-spacing:0; }
 h1,h2,h3,p { margin:0; }
